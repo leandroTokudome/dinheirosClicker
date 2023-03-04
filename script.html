@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black; color: white;">
+    <h1>Dinheiros: </h1>
+    <div id ="D"></div>
+    <br><br><br>
+    Dinheiros por segundo: 
+    <br><br>
+    <div id="dpsDisplay"></div>
+    <br><br><br>
+    <button onclick=clickD()>Ganhar dinheiros!!!</button> <br><br><br><br><br>
+    <h3>Construções: </h3> <br><br>
+    <button onclick="build1()">Construção 1</button>
+    <br><br>
+    Custo: 
+    <div id="build1Cost"></div>
+</body>
+</html>
+
+<script>
+    D.innerText = 0
+    build1On = 0
+    build1Cost.innerText = 10
+    build1Scale = 0
+    dps1 = 0
+    dpsDisplay.innerText = 0
+
+
+    function clickD() {
+        D.innerText = Number(D.innerText) + 1
+    }
+
+    function second() {
+        setTimeout(totalDps, 1000)
+    }
+
+    function totalDps() {
+        D.innerText = Number(D.innerText) + dps1
+        second()
+    }
+
+    function dpsTotal() {
+        if (build1On == 1) {
+            dps1 = Number(dps1) + 1
+            build1On = 0
+            build1Cost.innerText = Number(build1Cost.innerText) + 20
+        }
+        dpsDisplay.innerText = Number(dps1)
+    }
+
+    function build1() {
+        if (D.innerText >= Number(build1Cost.innerText)) {
+            build1On = 1
+            D.innerText = Number(D.innerText) - Number(build1Cost.innerText)
+            dpsTotal()
+            }
+    }
+
+    second()
+
+</script>
