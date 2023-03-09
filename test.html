@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinheiros Clicker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="centerHor">
+        
+        <h1 style="font-weight: bold; font-size: 300%; color: green;">Dinheiros: </h1>
+
+    </div>
+    
+    <div class="centerHor">
+        
+        <div id ="D" style="font-size: 200%; font-weight: bold;"></div>
+
+    </div>
+
+    <br><br>
+
+    <div class="centerHorDp">
+
+        <div class="fontDps"> Dinheiros por segundo: </div>
+        <div class="fontDps"> Dinheiros por clique: </div>
+
+    </div>
+
+    <div class="centerHorDp">
+        
+        <div id="dpsDisplay" style="margin: 30px;" class="fontDps"></div>
+        <div id="dpcDisplay" style="margin: 30px;" class="fontDps"></div>
+
+    </div>
+
+    <div class="centerHor">
+
+        <button onclick=clickD() class="button">$ Ganhar Dinheiros $</button> <br><br><br><br><br>
+
+    </div>
+
+    <h3>Construções: </h3> <br><br>
+    <button onclick="build1()">Construção 1</button>
+
+    <br><br>
+
+    Custo: 
+    <div id="build1Cost"></div>
+
+</body>
+</html>
+
+<script>
+
+    D.innerText = 0
+    build1On = 0
+    build1Cost.innerText = 10
+    dps1 = 0
+    dpc = 1
+    dpsDisplay.innerText = 0
+    dpcDisplay.innerText = 1
+
+
+    function clickD() {
+        D.innerText = Number(D.innerText) + dpc
+    }
+
+    function second() {
+        setTimeout(totalDps, 1000)
+    }
+
+    function totalDps() {
+        D.innerText = Number(D.innerText) + dps1
+        second()
+    }
+
+    function dpsAdd() {
+        if (build1On == 1) {
+            dps1 = Number(dps1) + 1
+            build1On = 0
+            build1Cost.innerText = Number(build1Cost.innerText) + 20
+        }
+
+        dpsDisplay.innerText = Number(dps1)
+    }
+
+    function build1() {
+        if (D.innerText >= Number(build1Cost.innerText)) {
+            build1On = 1
+            D.innerText = Number(D.innerText) - Number(build1Cost.innerText)
+            dpsAdd()
+            }
+    }
+
+    function dpcAdd() {
+        dpcDisplay.innerText = Number(dpc)
+    }
+
+    second()
+
+</script>

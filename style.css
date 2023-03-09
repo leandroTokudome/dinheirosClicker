@@ -1,0 +1,25 @@
+.centerHor {
+    display: flex;
+    justify-content: center;
+}
+
+.centerHorDp {
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+}
+
+.fontDps {
+    font-size: 150%;
+    font-weight: bold;
+}
+
+.button {
+    background-color: green;
+    border: solid 2px;
+    padding: 50px 35px;
+    font-size: 150%;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 3px black;
+}
