@@ -15,11 +15,15 @@
 }
 
 .button {
+    display: flex;
     background-color: green;
+    color: lightgreen;
     border: solid 2px;
-    padding: 50px 35px;
-    font-size: 150%;
+    padding-left: 8%;
+    padding-right: 8%;
+    align-self: center;
+    font-size: 500%;
     font-weight: bold;
     text-align: center;
-    box-shadow: 0 3px black;
+    box-shadow: 1px 3px gray;
 }
