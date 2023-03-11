@@ -19,23 +19,23 @@
 
     <div class="centerHor">
 
-        <div id="D" style="font-size: 200%; font-weight: bold;"></div>
+        <div id="dinheiros" style="font-size: 200%; font-weight: bold;">0</div>
 
     </div>
 
     <br><br>
 
-    <div class="centerHorDp">
+    <div class="centerHorDpx">
 
         <div class="fontDps"> Dinheiros por segundo: </div>
         <div class="fontDps"> Dinheiros por clique: </div>
 
     </div>
 
-    <div class="centerHorDp">
+    <div class="centerHorDpx">
 
-        <div id="dpsDisplay" style="margin: 30px;" class="fontDps"></div>
-        <div id="dpcDisplay" style="margin: 30px;" class="fontDps"></div>
+        <div id="dpsDisplay" style="margin: 30px;" class="fontDps">0</div>
+        <div id="dpcDisplay" style="margin: 30px;" class="fontDps">1</div>
 
     </div>
 
@@ -45,17 +45,21 @@
 
     </div>
 
-    <h3>Contratos e Posses: </h3>
+    <div class="buildsUpgrades">
+        
+        <h3 style="margin: 20px;">Contratos e Posses</h3>
+        <h3 style="margin: 20px;">Upgrades</h3>
+    
+    </div>
 
-    <button id="estagiario" onclick="builds()">Estagiário da SpTech</button>
-    <div>Quantidade: <span id="qntESP">0</span></div>
-    <div>Custo: <span id="espCost"></span></div>
-    <br><br>
-
-    <button id="coach" onclick="builds()">Coach</button>
-    <div>Coach</div>
-    <div>Quantidade: <span id="qntCoach">0</span></div>
-    <div>Custo: <span id="coachCost"></span></div>
+        <button onclick="esp()">Estagiário da SpTech</button>
+        <div>Quantidade: <span id="qntEsp">0</span></div>
+        <div>Custo: <span id="espCost">10</span></div>
+        <br><br>
+    
+        <button onclick="coach()">Coach</button>
+        <div>Quantidade: <span id="qntCoach">0</span></div>
+        <div>Custo: <span id="coachCost">100</span></div>
 
 </body>
 
@@ -63,20 +67,11 @@
 
 <script>
 
-    D.innerText = 0
-    espOn = 0
-    coachOn = 0
-    espCost.innerText = 10
-    coachCost.innerText = 100
-    coachCost = 100
     dps1 = 0
     dpc = 1
-    dpsDisplay.innerText = 0
-    dpcDisplay.innerText = 1
-
 
     function clickD() {
-        D.innerText = Number(D.innerText) + dpc
+        dinheiros.innerText = Number(dinheiros.innerText) + dpc
     }
 
     function second() {
@@ -84,41 +79,28 @@
     }
 
     function totalDps() {
-        D.innerText = Number(D.innerText) + dps1
+        dinheiros.innerText = Number(dinheiros.innerText) + dps1
         second()
     }
 
-    function dpsAdd() {
-        if (espOn == 1) {
+    function esp() {
+        if (dinheiros.innerText >= Number(espCost.innerText)) {
             dps1 = Number(dps1) + 1
-            espOn = 0
+            dinheiros.innerText = Number(dinheiros.innerText) - Number(espCost.innerText)
+            qntEsp.innerText = Number(qntEsp.innerText) + 1
             espCost.innerText = Number(espCost.innerText) + 20
+            dpsDisplay.innerText = dps1
         }
-
-        if (coachOn == 1) {
-            dps1 = Number(dps1) + 10
-            coachOn = 0
-            coachCost.innerText = Number(coachCost.innerText) + 100
-        }
-
-        dpsDisplay.innerText = Number(dps1)
     }
 
-    function builds() {
-
-        if (D.innerText >= Number(espCost.innerText)) {
-            espOn = 1
-            D.innerText = Number(D.innerText) - Number(espCost.innerText)
-            dpsAdd()
-            qntESP.innerText = Number(qntESP.innerText) + 1
-        };
-        if (D.innerText >= Number(coachCost.innerText)) {
-            coachOn = 1
-            D.innerText = Number(D.innerText) - Number(coachCost.innerText)
-            dpsAdd()
+    function coach() {
+        if (dinheiros.innerText >= Number(coachCost.innerText)) {
+            dps1 = Number(dps1) + 5
+            dinheiros.innerText = Number(dinheiros.innerText) - Number(coachCost.innerText)
             qntCoach.innerText = Number(qntCoach.innerText) + 1
+            coachCost.innerText = Number(coachCost.innerText) + 100
+            dpsDisplay.innerText = dps1
         }
-
     }
 
     function dpcAdd() {
