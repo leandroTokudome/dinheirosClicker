@@ -45,29 +45,51 @@
 
     </div>
 
-    <div class="buildsUpgrades">
-        
-        <h3 style="margin: 20px;">Contratos e Posses</h3>
-        <h3 style="margin: 20px;">Upgrades</h3>
-    
+    <div style="display: flex; justify-content: space-between;">
+
+        <h2 style="margin: 30px;">Contratos e Posses</h2>
+        <h2 style="margin: 30px;">Upgrades</h2>
+
     </div>
 
-        <button onclick="esp()">Estagiário da SpTech</button>
-        <div>Quantidade: <span id="qntEsp">0</span></div>
-        <div>Custo: <span id="espCost">10</span></div>
-        <br><br>
-    
-        <button onclick="coach()">Coach</button>
-        <div>Quantidade: <span id="qntCoach">0</span></div>
-        <div>Custo: <span id="coachCost">100</span></div>
+    <div style="display: flex; justify-content: space-between;">
 
+        <div class="buildsDisplay">
+                      
+            <button onclick="esp()">Estagiário da SpTech</button>
+            <div>Quantidade: <span id="qntEsp">0</span></div>
+            <div>Custo: <span id="espCost">10</span></div>
+            
+            <br>
+            
+            <button onclick="coach()">Coach</button>      
+            <div>Quantidade: <span id="qntCoach">0</span></div>
+            <div>Custo: <span id="coachCost">150</span></div>
+    
+        </div>
+        
+        
+        <div class="upgradesDisplay">
+      
+            <button id ="brandao" style="margin: 10px; display: none" onclick="brandaoUpgrade()">Contratar Brandão para presionar os estagiários <br>(2x Estagiário)<br>
+            Custo: 400</button>
+    
+        </div>
+
+    </div>
+            
+
+    </div>
 </body>
 
 </html>
 
 <script>
 
-    dps1 = 0
+    dpsEsp = 1
+    dpsCoach = 5
+
+    dpsPrincipal = 0
     dpc = 1
 
     function clickD() {
@@ -79,27 +101,47 @@
     }
 
     function totalDps() {
-        dinheiros.innerText = Number(dinheiros.innerText) + dps1
+        dinheiros.innerText = Number(dinheiros.innerText) + dpsPrincipal
         second()
     }
 
     function esp() {
         if (dinheiros.innerText >= Number(espCost.innerText)) {
-            dps1 = Number(dps1) + 1
+            dpsPrincipal = Number(dpsPrincipal) + dpsEsp
             dinheiros.innerText = Number(dinheiros.innerText) - Number(espCost.innerText)
             qntEsp.innerText = Number(qntEsp.innerText) + 1
             espCost.innerText = Number(espCost.innerText) + 20
-            dpsDisplay.innerText = dps1
+            dpsDisplay.innerText = dpsPrincipal
+            upgradeShow()
         }
     }
 
     function coach() {
         if (dinheiros.innerText >= Number(coachCost.innerText)) {
-            dps1 = Number(dps1) + 5
+            dpsPrincipal = Number(dpsPrincipal) + dpsCoach
             dinheiros.innerText = Number(dinheiros.innerText) - Number(coachCost.innerText)
             qntCoach.innerText = Number(qntCoach.innerText) + 1
             coachCost.innerText = Number(coachCost.innerText) + 100
-            dpsDisplay.innerText = dps1
+            dpsDisplay.innerText = dpsPrincipal
+            upgradeShow()
+        }
+    }
+
+    function brandaoUpgrade() {
+        if (dinheiros.innerText >= 400) {
+
+            brandao.style.display = "none"
+            dpsEsp = dpsEsp * 2
+            dpsPrincipal = dpsPrincipal + (qntEsp.innerText * 2) - Number(qntEsp.innerText)
+            dpsDisplay.innerText = dpsPrincipal
+            dinheiros.innerText = Number(dinheiros.innerText) - 400
+
+        }
+    }
+
+    function upgradeShow() {
+        if (qntEsp.innerText == 25) {
+            brandao.style.display = "block"
         }
     }
 
@@ -108,5 +150,6 @@
     }
 
     second()
+
 
 </script>
