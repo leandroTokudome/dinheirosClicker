@@ -41,7 +41,7 @@
 
     <div class="centerHor">
 
-        <button onclick=clickD() class="button">$</button>
+        <button onclick=clickDinheiros() class="button">$</button>
 
     </div>
 
@@ -60,11 +60,25 @@
             <div>Quantidade: <span id="qntEsp">0</span></div>
             <div>Custo: <span id="espCost">10</span></div>
             
-            <br>
-            
             <button onclick="coach()">Coach</button>      
             <div>Quantidade: <span id="qntCoach">0</span></div>
             <div>Custo: <span id="coachCost">150</span></div>
+            
+            <button onclick="inv()">Investidor da Kuatá</button>
+            <div>Quantidade: <span id="qntInv">0</span></div>
+            <div>Custo: <span id="invCost">1000</span></div>
+
+            <button onclick="bnk()">Banco</button>
+            <div>Quantidade: <span id="qntBnk">0</span></div>
+            <div>Custo: <span id="bnkCost">30000</span></div>
+
+            <button onclick="fsp()">Formado na SpTech</button>
+            <div>Quantidade: <span id="qntFsp">0</span></div>
+            <div>Custo: <span id="fspCost">65000</span></div>
+
+            <button onclick="pol()">Político</button>
+            <div>Quantidade: <span id="qntPol">0</span></div>
+            <div>Custo: <span id="polCost">100000</span></div>
     
         </div>
         
@@ -88,11 +102,15 @@
 
     dpsEsp = 1
     dpsCoach = 5
+    dpsInv = 35
+    dpsBnk = 100
+    dpsFsp = 250
+    dpsPol = 400
 
     dpsPrincipal = 0
     dpc = 1
 
-    function clickD() {
+    function clickDinheiros() {
         dinheiros.innerText = Number(dinheiros.innerText) + dpc
     }
 
@@ -122,6 +140,50 @@
             dinheiros.innerText = Number(dinheiros.innerText) - Number(coachCost.innerText)
             qntCoach.innerText = Number(qntCoach.innerText) + 1
             coachCost.innerText = Number(coachCost.innerText) + 100
+            dpsDisplay.innerText = dpsPrincipal
+            upgradeShow()
+        }
+    }
+
+    function inv() {
+        if (dinheiros.innerText >= Number(invCost.innerText)) {
+            dpsPrincipal = Number(dpsPrincipal) + dpsInv
+            dinheiros.innerText = Number(dinheiros.innerText) - Number(invCost.innerText)
+            qntInv.innerText = Number(qntInv.innerText) + 1
+            invCost.innerText = Number(invCost.innerText) + 250
+            dpsDisplay.innerText = dpsPrincipal
+            upgradeShow()
+        }
+    }
+
+    function bnk() {
+        if (dinheiros.innerText >= Number(bnkCost.innerText)) {
+            dpsPrincipal = Number(dpsPrincipal) + dpsBnk
+            dinheiros.innerText = Number(dinheiros.innerText) - Number(bnkCost.innerText)
+            qntBnk.innerText = Number(qntBnk.innerText) + 1
+            bnkCost.innerText = Number(bnkCost.innerText) + 500
+            dpsDisplay.innerText = dpsPrincipal
+            upgradeShow()
+        }
+    }
+
+    function fsp() {
+        if (dinheiros.innerText >= Number(fspCost.innerText)) {
+            dpsPrincipal = Number(dpsPrincipal) + dpsFsp
+            dinheiros.innerText = Number(dinheiros.innerText) - Number(fspCost.innerText)
+            qntFsp.innerText = Number(qntFsp.innerText) + 1
+            fspCost.innerText = Number(fspCost.innerText) + 750
+            dpsDisplay.innerText = dpsPrincipal
+            upgradeShow()
+        }
+    }
+
+    function pol() {
+        if (dinheiros.innerText >= Number(polCost.innerText)) {
+            dpsPrincipal = Number(dpsPrincipal) + dpsPol
+            dinheiros.innerText = Number(dinheiros.innerText) - Number(polCost.innerText)
+            qntPol.innerText = Number(qntPol.innerText) + 1
+            polCost.innerText = Number(polCost.innerText) + 1000
             dpsDisplay.innerText = dpsPrincipal
             upgradeShow()
         }
