@@ -11,207 +11,81 @@
 
 <body>
 
-    <div class="centerHor">
+    <div class="mainBody">
 
-        <h1 style="font-weight: bold; font-size: 300%; color: green;">Dinheiros: </h1>
-
-    </div>
-
-    <div class="centerHor">
-
-        <div id="dinheiros" style="font-size: 200%; font-weight: bold;">0</div>
-
-    </div>
-
-    <br><br>
-
-    <div class="centerHorDpx">
-
-        <div class="fontDps"> Dinheiros por segundo: </div>
-        <div class="fontDps"> Dinheiros por clique: </div>
-
-    </div>
-
-    <div class="centerHorDpx">
-
-        <div id="dpsDisplay" style="margin: 30px;" class="fontDps">0</div>
-        <div id="dpcDisplay" style="margin: 30px;" class="fontDps">1</div>
-
-    </div>
-
-    <div class="centerHor">
-
-        <button onclick=clickDinheiros() class="button">$</button>
-
-    </div>
-
-    <div style="display: flex; justify-content: space-between;">
-
-        <h2 style="margin: 30px;">Contratos e Posses</h2>
-        <h2 style="margin: 30px;">Upgrades</h2>
-
-    </div>
-
-    <div style="display: flex; justify-content: space-between;">
-
-        <div class="buildsDisplay">
-                      
-            <button onclick="esp()">Estagiário da SpTech</button>
+        
+        
+        <div class="left">
+            
+            <h2>Contratos e Posses</h2>
+            
+            <button onclick=" buyEsp=true; builds();">Estagiário da SpTech</button>
             <div>Quantidade: <span id="qntEsp">0</span></div>
             <div>Custo: <span id="espCost">10</span></div>
-            
-            <button onclick="coach()">Coach</button>      
+
+            <button onclick="buyCoach = true; builds()">Coach</button>
             <div>Quantidade: <span id="qntCoach">0</span></div>
             <div>Custo: <span id="coachCost">150</span></div>
-            
-            <button onclick="inv()">Investidor da Kuatá</button>
+
+            <button onclick="buyInv = true; builds()">Investidor da Kuatá</button>
             <div>Quantidade: <span id="qntInv">0</span></div>
             <div>Custo: <span id="invCost">1000</span></div>
 
-            <button onclick="bnk()">Banco</button>
+            <button onclick="buyBnk = true; builds()">Banco</button>
             <div>Quantidade: <span id="qntBnk">0</span></div>
             <div>Custo: <span id="bnkCost">30000</span></div>
 
-            <button onclick="fsp()">Formado na SpTech</button>
+            <button onclick="buyFsp = true; builds()">Formado na SpTech</button>
             <div>Quantidade: <span id="qntFsp">0</span></div>
             <div>Custo: <span id="fspCost">65000</span></div>
 
-            <button onclick="pol()">Político</button>
+            <button onclick="buyPol = true; builds()">Político</button>
             <div>Quantidade: <span id="qntPol">0</span></div>
             <div>Custo: <span id="polCost">100000</span></div>
-    
+
         </div>
         
+        <div class="center">
+
+            <div class="centerHorizontal">
+
+                <h1 style="font-weight: bold; font-size: 300%; color: green;">Dinheiros</h1>
+
+            </div>
+
+            <div class="centerHorizontal">
+                
+                <div id="dinheiros" style="font-size: 200%; font-weight: bold;">0</div>
+
+            </div>
+
+            <br><br>
+
+            <div class="fontDps"> Dinheiros por segundo: </div>
+            <div class="fontDps"> Dinheiros por clique: </div>
+
+            <div id="dpsDisplay" style="margin: 30px;" class="fontDps">0</div>
+            <div id="dpcDisplay" style="margin: 30px;" class="fontDps">1</div>
+
+            <button onclick=clickDinheiros() class="button">$</button>
+
+        </div>
         
-        <div class="upgradesDisplay">
-      
-            <button id ="brandao" style="margin: 10px; display: none" onclick="brandaoUpgrade()">Contratar Brandão para presionar os estagiários <br>(2x Estagiário)<br>
-            Custo: 400</button>
-    
+        <div class="right">
+
+            <h2>Upgrades</h2>
+
+            <button id="brandao" style="display: block;" onclick="brandaoUpgrade()">Contratar Brandão para
+                presionar os estagiários <br>(2x Estagiário)<br>
+                Custo: 400</button>
+
         </div>
 
     </div>
-            
 
-    </div>
 </body>
 
 </html>
 
-<script>
-
-    dpsEsp = 1
-    dpsCoach = 5
-    dpsInv = 35
-    dpsBnk = 100
-    dpsFsp = 250
-    dpsPol = 400
-
-    dpsPrincipal = 0
-    dpc = 1
-
-    function clickDinheiros() {
-        dinheiros.innerText = Number(dinheiros.innerText) + dpc
-    }
-
-    function second() {
-        setTimeout(totalDps, 1000)
-    }
-
-    function totalDps() {
-        dinheiros.innerText = Number(dinheiros.innerText) + dpsPrincipal
-        second()
-    }
-
-    function esp() {
-        if (dinheiros.innerText >= Number(espCost.innerText)) {
-            dpsPrincipal = Number(dpsPrincipal) + dpsEsp
-            dinheiros.innerText = Number(dinheiros.innerText) - Number(espCost.innerText)
-            qntEsp.innerText = Number(qntEsp.innerText) + 1
-            espCost.innerText = Number(espCost.innerText) + 20
-            dpsDisplay.innerText = dpsPrincipal
-            upgradeShow()
-        }
-    }
-
-    function coach() {
-        if (dinheiros.innerText >= Number(coachCost.innerText)) {
-            dpsPrincipal = Number(dpsPrincipal) + dpsCoach
-            dinheiros.innerText = Number(dinheiros.innerText) - Number(coachCost.innerText)
-            qntCoach.innerText = Number(qntCoach.innerText) + 1
-            coachCost.innerText = Number(coachCost.innerText) + 100
-            dpsDisplay.innerText = dpsPrincipal
-            upgradeShow()
-        }
-    }
-
-    function inv() {
-        if (dinheiros.innerText >= Number(invCost.innerText)) {
-            dpsPrincipal = Number(dpsPrincipal) + dpsInv
-            dinheiros.innerText = Number(dinheiros.innerText) - Number(invCost.innerText)
-            qntInv.innerText = Number(qntInv.innerText) + 1
-            invCost.innerText = Number(invCost.innerText) + 250
-            dpsDisplay.innerText = dpsPrincipal
-            upgradeShow()
-        }
-    }
-
-    function bnk() {
-        if (dinheiros.innerText >= Number(bnkCost.innerText)) {
-            dpsPrincipal = Number(dpsPrincipal) + dpsBnk
-            dinheiros.innerText = Number(dinheiros.innerText) - Number(bnkCost.innerText)
-            qntBnk.innerText = Number(qntBnk.innerText) + 1
-            bnkCost.innerText = Number(bnkCost.innerText) + 500
-            dpsDisplay.innerText = dpsPrincipal
-            upgradeShow()
-        }
-    }
-
-    function fsp() {
-        if (dinheiros.innerText >= Number(fspCost.innerText)) {
-            dpsPrincipal = Number(dpsPrincipal) + dpsFsp
-            dinheiros.innerText = Number(dinheiros.innerText) - Number(fspCost.innerText)
-            qntFsp.innerText = Number(qntFsp.innerText) + 1
-            fspCost.innerText = Number(fspCost.innerText) + 750
-            dpsDisplay.innerText = dpsPrincipal
-            upgradeShow()
-        }
-    }
-
-    function pol() {
-        if (dinheiros.innerText >= Number(polCost.innerText)) {
-            dpsPrincipal = Number(dpsPrincipal) + dpsPol
-            dinheiros.innerText = Number(dinheiros.innerText) - Number(polCost.innerText)
-            qntPol.innerText = Number(qntPol.innerText) + 1
-            polCost.innerText = Number(polCost.innerText) + 1000
-            dpsDisplay.innerText = dpsPrincipal
-            upgradeShow()
-        }
-    }
-
-    function brandaoUpgrade() {
-        if (dinheiros.innerText >= 400) {
-
-            brandao.style.display = "none"
-            dpsEsp = dpsEsp * 2
-            dpsPrincipal = dpsPrincipal + (qntEsp.innerText * 2) - Number(qntEsp.innerText)
-            dpsDisplay.innerText = dpsPrincipal
-            dinheiros.innerText = Number(dinheiros.innerText) - 400
-
-        }
-    }
-
-    function upgradeShow() {
-        if (qntEsp.innerText == 25) {
-            brandao.style.display = "block"
-        }
-    }
-
-    function dpcAdd() {
-        dpcDisplay.innerText = Number(dpc)
-    }
-
-    second()
-
-
+<script src="script.js">
 </script>
