@@ -13,69 +13,92 @@
 
     <div class="mainBody">
 
-        
-        
-        <div class="left">
-            
+        <div class="boxLeft">
+
             <h2>Contratos e Posses</h2>
-            
+
+            <br>
+
             <button onclick=" buyEsp=true; builds();">Estagiário da SpTech</button>
             <div>Quantidade: <span id="qntEsp">0</span></div>
             <div>Custo: <span id="espCost">10</span></div>
+
+            <br>
 
             <button onclick="buyCoach = true; builds()">Coach</button>
             <div>Quantidade: <span id="qntCoach">0</span></div>
             <div>Custo: <span id="coachCost">150</span></div>
 
+            <br>
+
             <button onclick="buyInv = true; builds()">Investidor da Kuatá</button>
             <div>Quantidade: <span id="qntInv">0</span></div>
             <div>Custo: <span id="invCost">1000</span></div>
+
+            <br>
 
             <button onclick="buyBnk = true; builds()">Banco</button>
             <div>Quantidade: <span id="qntBnk">0</span></div>
             <div>Custo: <span id="bnkCost">30000</span></div>
 
+            <br>
+
             <button onclick="buyFsp = true; builds()">Formado na SpTech</button>
             <div>Quantidade: <span id="qntFsp">0</span></div>
             <div>Custo: <span id="fspCost">65000</span></div>
+
+            <br>
 
             <button onclick="buyPol = true; builds()">Político</button>
             <div>Quantidade: <span id="qntPol">0</span></div>
             <div>Custo: <span id="polCost">100000</span></div>
 
         </div>
-        
-        <div class="center">
 
-            <div class="centerHorizontal">
+        <div class="boxCenter">
+
+            <div class="dinheirosTitle">
 
                 <h1 style="font-weight: bold; font-size: 300%; color: green;">Dinheiros</h1>
 
             </div>
 
-            <div class="centerHorizontal">
-                
+            <div class="dinheirosDisplay">
+
                 <div id="dinheiros" style="font-size: 200%; font-weight: bold;">0</div>
 
             </div>
 
             <br><br>
 
-            <div class="fontDps"> Dinheiros por segundo: </div>
-            <div class="fontDps"> Dinheiros por clique: </div>
+            <div class="dpsAndDpcTop">
 
-            <div id="dpsDisplay" style="margin: 30px;" class="fontDps">0</div>
-            <div id="dpcDisplay" style="margin: 30px;" class="fontDps">1</div>
+                <div class="fontDps"> Dinheiros por segundo</div>
+                <div class="fontDps"> Dinheiros por clique</div>
+
+            </div>
+
+            <div class="dpsAndDpcBot">
+
+                <div id="dpsDisplay" style="margin: 30px;" class="fontDps">0</div>
+                <div id="dpcDisplay" style="margin: 30px;" class="fontDps">1</div>
+
+            </div>
+
+            <br><br><br>
 
             <button onclick=clickDinheiros() class="button">$</button>
 
         </div>
-        
-        <div class="right">
+
+        <div class="boxRight">
 
             <h2>Upgrades</h2>
 
-            <button id="brandao" style="display: block;" onclick="brandaoUpgrade()">Contratar Brandão para
+            <br>
+
+            <button id="brandao" style="display: none;" onclick="upgrades(); upgBrandao = true">Contratar Brandão
+                para<br>
                 presionar os estagiários <br>(2x Estagiário)<br>
                 Custo: 400</button>
 

@@ -12,6 +12,8 @@ buyBnk = false
 buyFsp = false
 buyPol = false
 
+upgBrandao = false
+
 dpsPrincipal = 0
 dpc = 1
 
@@ -120,13 +122,19 @@ function builds() {
     }
 }
 
-function brandaoUpgrade() {
-    if (dinheiros.innerText >= 400) {
-        dpsEsp = dpsEsp * 2
-        dpsPrincipal = dpsPrincipal + (qntEsp.innerText * dpsEsp) - Number(qntEsp.innerText) * dpsEsp / 2
-        dpsDisplay.innerText = dpsPrincipal
-        dinheiros.innerText = Number(dinheiros.innerText) - 400
-        brandao.remove()
+function upgrades() {
+    if (upgBrandao) {
+
+        if (dinheiros.innerText >= 400) {
+            dpsEsp = dpsEsp * 2
+            dpsPrincipal = dpsPrincipal + (qntEsp.innerText * dpsEsp) - Number(qntEsp.innerText) * dpsEsp / 2
+            dpsDisplay.innerText = dpsPrincipal
+            dinheiros.innerText = Number(dinheiros.innerText) - 400
+            brandao.remove()
+        }
+
+        upgBrandao = false
+
     }
 }
 
