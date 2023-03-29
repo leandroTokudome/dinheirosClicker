@@ -1,16 +1,21 @@
+
 dpsEsp = 1
 dpsCoach = 5
 dpsInv = 35
 dpsBnk = 100
 dpsFsp = 250
+dpsCas = 300
 dpsPol = 400
+dpsMul = 1000
 
 buyEsp = false
 buyCoach = false
 buyInv = false
 buyBnk = false
 buyFsp = false
+buyCas = false
 buyPol = false
+buyMul = false
 
 upgBrandao = false
 
@@ -42,7 +47,7 @@ function builds() {
             upgradeShow()
 
         }
-        
+
         buyEsp = false
 
     }
@@ -107,6 +112,21 @@ function builds() {
 
     }
 
+    else if (buyCas) {
+
+        if (dinheiros.innerText >= Number(casCost.innerText)) {
+            dpsPrincipal = Number(dpsPrincipal) + dpsCas
+            dinheiros.innerText = Number(dinheiros.innerText) - Number(casCost.innerText)
+            qntCas.innerText = Number(qntCas.innerText) + 1
+            casCost.innerText = Number(casCost.innerText) + 800
+            dpsDisplay.innerText = dpsPrincipal
+            upgradeShow()
+        }
+
+        buyCas = false
+
+    }
+
     else if (buyPol) {
         if (dinheiros.innerText >= Number(polCost.innerText)) {
             dpsPrincipal = Number(dpsPrincipal) + dpsPol
@@ -118,6 +138,20 @@ function builds() {
         }
 
         buyPol = false
+
+    }
+
+    else if (buyMul) {
+        if (dinheiros.innerText >= Number(mulCost.innerText)) {
+            dpsPrincipal = Number(dpsPrincipal) + dpsMul
+            dinheiros.innerText = Number(dinheiros.innerText) - Number(mulCost.innerText)
+            qntMul.innerText = Number(qntMul.innerText) + 1
+            mulCost.innerText = Number(mulCost.innerText) + 3000
+            dpsDisplay.innerText = dpsPrincipal
+            upgradeShow()
+        }
+
+        buyMul = false
 
     }
 }
