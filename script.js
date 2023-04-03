@@ -17,9 +17,25 @@ buyCas = false
 buyPol = false
 buyMul = false
 
-upgBrandao = false
+espScale = 20
+coachScale = 100
+invScale = 250
+bnkScale = 500
+fspScale = 750
+casScale = 800
+polScale = 1000
+mulScale = 3000
 
-dpsPrincipal = 0
+upgsEsp = [upgEsp00 = false, upgEsp01 = falseupgEsp02 = false, upgEsp03 = false, upgEsp04 = false, upgEsp05 = false, upgEsp06 = false, upgEsp07 = false]
+upgsCoach = [upgCoach00 = false, upgCoach01 = false, upgCoach02 = false, upgCoach03 = false, upgCoach04 = false, upgCoach05 = false, upgCoach06 = false, upgCoach07 = false]
+upgsInv = [upgInv00 = false, upgInv01 = false, upgInv02 = false, upgInv03 = false, upgInv04 = false, upgInv05 = false, upgInv06 = false, upgInv07 = false]
+upgsBnk = [upgBnk00 = false, upgBnk01 = false, upgBnk02 = false, upgBnk03 = false, upgBnk04 = false, upgBnk05 = false, upgBnk06 = false, upgBnk07 = false]
+upgsFsp = [upgFsp00 = false, upgFsp01 = false, upgFsp02 = false, upgFsp03 = false, upgFsp04 = false, upgFsp05 = false, upgFsp06 = false, upgFsp07 = false]
+upgsCas = [upgCas00 = false, upgCas01 = false, upgCas02 = false, upgCas03 = false, upgCas04 = false, upgCas05 = false, upgCas06 = false, upgCas07 = false]
+upgsPol = [upgPol00 = false, upgPol01 = false, upgPol02 = false, upgPol03 = false, upgPol04 = false, upgPol05 = false, upgPol06 = false, upgPol07 = false]
+upgsMul = [upgMul00 = false, upgMul01 = false, upgMul02 = false, upgMul03 = false, upgMul04 = false, upgMul05 = false, upgMul06 = false, upgMul07 = false]
+
+dpsTotal = 0
 dpc = 1
 
 function clickDinheiros() {
@@ -31,150 +47,41 @@ function second() {
 }
 
 function totalDps() {
-    dinheiros.innerText = Number(dinheiros.innerText) + dpsPrincipal
+    dinheiros.innerText = Number(dinheiros.innerText) + dpsTotal
 }
 
-function builds() {
-
-    if (buyEsp) {
-
-        if (dinheiros.innerText >= Number(espCost.innerText)) {
-            dpsPrincipal = Number(dpsPrincipal) + dpsEsp
-            dinheiros.innerText = Number(dinheiros.innerText) - Number(espCost.innerText)
-            qntEsp.innerText = Number(qntEsp.innerText) + 1
-            espCost.innerText = Number(espCost.innerText) + 20
-            dpsDisplay.innerText = dpsPrincipal
-            upgradeShow()
-
-        }
-
-        buyEsp = false
-
-    }
-
-    else if (buyCoach) {
-
-        if (dinheiros.innerText >= Number(coachCost.innerText)) {
-            dpsPrincipal = Number(dpsPrincipal) + dpsCoach
-            dinheiros.innerText = Number(dinheiros.innerText) - Number(coachCost.innerText)
-            qntCoach.innerText = Number(qntCoach.innerText) + 1
-            coachCost.innerText = Number(coachCost.innerText) + 100
-            dpsDisplay.innerText = dpsPrincipal
-            upgradeShow()
-        }
-
-        buyCoach = false
-
-    }
-
-    else if (buyInv) {
-
-        if (dinheiros.innerText >= Number(invCost.innerText)) {
-            dpsPrincipal = Number(dpsPrincipal) + dpsInv
-            dinheiros.innerText = Number(dinheiros.innerText) - Number(invCost.innerText)
-            qntInv.innerText = Number(qntInv.innerText) + 1
-            invCost.innerText = Number(invCost.innerText) + 250
-            dpsDisplay.innerText = dpsPrincipal
-            upgradeShow()
-        }
-
-        buyInv = false
-
-    }
-
-    else if (buyBnk) {
-
-        if (dinheiros.innerText >= Number(bnkCost.innerText)) {
-            dpsPrincipal = Number(dpsPrincipal) + dpsBnk
-            dinheiros.innerText = Number(dinheiros.innerText) - Number(bnkCost.innerText)
-            qntBnk.innerText = Number(qntBnk.innerText) + 1
-            bnkCost.innerText = Number(bnkCost.innerText) + 500
-            dpsDisplay.innerText = dpsPrincipal
-            upgradeShow()
-        }
-
-        buyBnk = false
-
-    }
-
-    else if (buyFsp) {
-
-        if (dinheiros.innerText >= Number(fspCost.innerText)) {
-            dpsPrincipal = Number(dpsPrincipal) + dpsFsp
-            dinheiros.innerText = Number(dinheiros.innerText) - Number(fspCost.innerText)
-            qntFsp.innerText = Number(qntFsp.innerText) + 1
-            fspCost.innerText = Number(fspCost.innerText) + 750
-            dpsDisplay.innerText = dpsPrincipal
-            upgradeShow()
-        }
-
-        buyFsp = false
-
-    }
-
-    else if (buyCas) {
-
-        if (dinheiros.innerText >= Number(casCost.innerText)) {
-            dpsPrincipal = Number(dpsPrincipal) + dpsCas
-            dinheiros.innerText = Number(dinheiros.innerText) - Number(casCost.innerText)
-            qntCas.innerText = Number(qntCas.innerText) + 1
-            casCost.innerText = Number(casCost.innerText) + 800
-            dpsDisplay.innerText = dpsPrincipal
-            upgradeShow()
-        }
-
-        buyCas = false
-
-    }
-
-    else if (buyPol) {
-        if (dinheiros.innerText >= Number(polCost.innerText)) {
-            dpsPrincipal = Number(dpsPrincipal) + dpsPol
-            dinheiros.innerText = Number(dinheiros.innerText) - Number(polCost.innerText)
-            qntPol.innerText = Number(qntPol.innerText) + 1
-            polCost.innerText = Number(polCost.innerText) + 1000
-            dpsDisplay.innerText = dpsPrincipal
-            upgradeShow()
-        }
-
-        buyPol = false
-
-    }
-
-    else if (buyMul) {
-        if (dinheiros.innerText >= Number(mulCost.innerText)) {
-            dpsPrincipal = Number(dpsPrincipal) + dpsMul
-            dinheiros.innerText = Number(dinheiros.innerText) - Number(mulCost.innerText)
-            qntMul.innerText = Number(qntMul.innerText) + 1
-            mulCost.innerText = Number(mulCost.innerText) + 3000
-            dpsDisplay.innerText = dpsPrincipal
-            upgradeShow()
-        }
-
-        buyMul = false
-
+function builds(buildCost, buildDps, buildQnt, buildScale) {
+    if (dinheiros.innerText >= Number(buildCost.innerText)) {
+        dpsTotal = Number(dpsTotal) + buildDps
+        dinheiros.innerText = Number(dinheiros.innerText) - Number(buildCost.innerText)
+        buildQnt.innerText = Number(buildQnt.innerText) + 1
+        buildCost.innerText = Number(buildCost.innerText) + buildScale
+        dpsDisplay.innerText = dpsTotal
     }
 }
 
 function upgrades() {
-    if (upgBrandao) {
+    if (dinheiros.innerText >= 400 && upgsEsp[1] == true) {
+        timesTwoEsp(400)
+        idUpgEsp00.remove()
+    }
 
-        if (dinheiros.innerText >= 400) {
-            dpsEsp = dpsEsp * 2
-            dpsPrincipal = dpsPrincipal + (qntEsp.innerText * dpsEsp) - Number(qntEsp.innerText) * dpsEsp / 2
-            dpsDisplay.innerText = dpsPrincipal
-            dinheiros.innerText = Number(dinheiros.innerText) - 400
-            brandao.remove()
-        }
+    if (upgsEsp[2] == true) {
+        timesTwoEsp(600)
+        idUpgEsp01.remove()
+    }
 
-        upgBrandao = false
-
+    function timesTwoEsp(price) {
+        dpsEsp = dpsEsp * 2
+        dpsTotal = dpsTotal + (qntEsp.innerText * dpsEsp) - Number(qntEsp.innerText) * dpsEsp / 2
+        dpsDisplay.innerText = dpsTotal
+        dinheiros.innerText = Number(dinheiros.innerText) - price
     }
 }
 
-function upgradeShow() {
-    if (qntEsp.innerText == 25) {
-        brandao.style.display = "block"
+function upgradeShow(buildQnt, idBuild) {
+    if (buildQnt.innerText == 25) {
+        idBuild.style.display = "block"
     }
 }
 
