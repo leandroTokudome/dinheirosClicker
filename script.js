@@ -38,6 +38,9 @@ upgsMul = [upgMul00 = false, upgMul01 = false, upgMul02 = false, upgMul03 = fals
 dpsTotal = 0
 dpc = 1
 
+document.getElementById("dinheirosButton").addEventListener("click", function removeFocus() {
+this.blur();})
+
 function clickDinheiros() {
     dinheiros.innerText = Number(dinheiros.innerText) + dpc
 }
