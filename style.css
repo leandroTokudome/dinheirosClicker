@@ -67,3 +67,7 @@ body {
     justify-content: space-around;
     width: 210%;
 }
+
+.buttonUpg {
+    display: none;
+}

@@ -19,61 +19,52 @@
 
             <br>
 
-            <button
-                onclick=" buyEsp = true; builds(espCost, dpsEsp, qntEsp, espScale); upgradeShow(qntEsp, idUpgEsp00); buyEsp = false">Estagiário
+            <button onclick="builds(espCost, dpsEsp, qntEsp, espScale); upgradeShow(qntEsp, `idUpgEsp`);">Estagiário
                 da SpTech</button>
             <div>Quantidade: <span id="qntEsp">0</span></div>
             <div>Custo: <span id="espCost">10</span></div>
 
             <br>
 
-            <button
-                onclick="buyCoach = true; builds(coachCost, dpsCoach, qntCoach, coachScale); upgradeShow(); buyCoach = false">Coach</button>
+            <button onclick="builds(coachCost, dpsCoach, qntCoach, coachScale); upgradeShow(qntCoach, `idUpgEsp`);">Coach</button>
             <div>Quantidade: <span id="qntCoach">0</span></div>
             <div>Custo: <span id="coachCost">150</span></div>
 
             <br>
 
-            <button
-                onclick="buyInv = true; builds(invCost, dpsInv, qntInv, invScale); upgradeShow(); buyInv = false">Investidor
+            <button onclick="builds(invCost, dpsInv, qntInv, invScale); upgradeShow(qntInv, `idUpgInv`);">Investidor
                 da bolsa</button>
             <div>Quantidade: <span id="qntInv">0</span></div>
             <div>Custo: <span id="invCost">1000</span></div>
 
             <br>
 
-            <button
-                onclick="buyBnk = true; builds(bnkCost, dpsBnk, qntBnk, bnkScale); upgradeShow(); buyBnk = false">Banco</button>
+            <button onclick="builds(bnkCost, dpsBnk, qntBnk, bnkScale); upgradeShow(qntBnk, `idUpgBnk`);">Banco</button>
             <div>Quantidade: <span id="qntBnk">0</span></div>
             <div>Custo: <span id="bnkCost">30000</span></div>
 
             <br>
 
-            <button
-                onclick="buyFsp = true; builds(fspCost, dpsFsp, qntFsp, fspScale); upgradeShow(); buyFsp = false">Formado
+            <button onclick="builds(fspCost, dpsFsp, qntFsp, fspScale); upgradeShow(qntFsp, `idUpgFsp`);">Formado
                 na SpTech</button>
             <div>Quantidade: <span id="qntFsp">0</span></div>
             <div>Custo: <span id="fspCost">65000</span></div>
 
             <br>
 
-            <button
-                onclick="buyCas = true; builds(casCost, dpsCas, qntCas, casScale); upgradeShow(); buyCas = false">Cassino</button>
+            <button onclick="builds(casCost, dpsCas, qntCas, casScale); upgradeShow(qntCas, `idUpgCas`);">Cassino</button>
             <div>Quantidade: <span id="qntCas">0</span></div>
             <div>Custo: <span id="casCost">80000</span></div>
 
             <br>
 
-            <button
-                onclick="buyPol = true; builds(polCost, dpsPol, qntPol, polScale); upgradeShow(); buyPol = false">Político</button>
+            <button onclick="builds(polCost, dpsPol, qntPol, polScale); upgradeShow(qntPol, `idUpgPol`);">Político</button>
             <div>Quantidade: <span id="qntPol">0</span></div>
             <div>Custo: <span id="polCost">100000</span></div>
 
             <br>
 
-            <button
-                onclick="buyMul = true; builds(mulCost, dpsMul, qntMul, mulScale); upgradeShow(); buyMul = false">Empresa
-                Multinacional</button>
+            <button onclick="builds(mulCost, dpsMul, qntMul, mulScale); upgradeShow(qntMul, `idUpgMul`);">Empresa Multinacional</button>
             <div>Quantidade: <span id="qntMul">0</span></div>
             <div>Custo: <span id="mulCost">300000</span></div>
 
@@ -125,7 +116,8 @@
 
             <!--Upgrades Esp-->
 
-            <button id="idUpgEsp00" style="display: none;" onclick="upgsEsp[1] = true; upgrades(); upgsEsp[1] = false;">
+            <button id="idUpgEsp00" class="buttonUpg"
+                onclick="upgsEsp[1] = true; upgrades(upgsEsp[1], `dpsEsp`, qntEsp, 400, idUpgEsp00); upgsEsp[1] = false;">
                 Fazer festa de boas-vindas<br>
                 pros estágiarios para fingir<br>
                 que vai dar tudo certo<br>
@@ -133,7 +125,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgEsp01" style="display: block" onclick="upgsEsp[2] = true; upgrades(); upgsEsp[2] = false;">
+            <button id="idUpgEsp01"
+                onclick="upgsEsp[2] = true; upgrades(upgsEsp[2], `dpsEsp`, qntEsp, 400, idUpgEsp01); upgsEsp[2] = false;">
                 Fazer parceria com<br>
                 a Americanos e com a<br>
                 Ricardo Erétrico para animar<br>
@@ -142,7 +135,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgEsp02" style="display: none" onclick="upgsEsp[3] = true; upgrades(); upgsEsp[3] = false;">
+            <button id="idUpgEsp02"
+                onclick="upgsEsp[3] = true; upgrades(upgsEsp[3], `dpsEsp`, qntEsp, 400, idUpgEsp02); upgsEsp[3] = false;">
                 Demitir todos os professores<br>
                 da SpTech para testar<br>
                 a independência dos alunos<br>
@@ -150,7 +144,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgEsp03" style="display: none" onclick="upgsEsp[4] = true; upgrades(); upgsEsp[4] = false;">
+            <button id="idUpgEsp03"
+                onclick="upgsEsp[4] = true; upgrades(upgsEsp[4], `dpsEsp`, qntEsp, 400, idUpgEsp03); upgsEsp[4] = false;">
                 Ameaçar demitir todos os<br>
                 estagiários e a matriculá-los<br>
                 em um curso de gastronomia<br>
@@ -158,7 +153,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgEsp04" style="display: none" onclick="upgsEsp[5] = true; upgrades(); upgsEsp[5] = false;">
+            <button id="idUpgEsp04"
+                onclick="upgsEsp[5] = true; upgrades(upgsEsp[5], `dpsEsp`, qntEsp, 400, idUpgEsp04); upgsEsp[5] = false;">
                 Aumentar a carga horária<br>
                 dos alunos para<br>
                 160 horas por semana<br>
@@ -167,7 +163,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgEsp05" style="display: none" onclick="upgsEsp[6] = true; upgrades(); upgsEsp[6] = false;">
+            <button id="idUpgEsp05"
+                onclick="upgsEsp[6] = true; upgrades(upgsEsp[6], `dpsEsp`, qntEsp, 400, idUpgEsp05); upgsEsp[6] = false;">
                 Aumentar a quantidade de<br>
                 aulas de Socioemocional pois<br>
                 a galera tá pirando já<br>
@@ -175,7 +172,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgEsp06" style="display: none" onclick="upgsEsp[7] = true; upgrades(); upgsEsp[7] = false;">
+            <button id="idUpgEsp06"
+                onclick="upgsEsp[7] = true; upgrades(upgsEsp[7], `dpsEsp`, qntEsp, 400, idUpgEsp06); upgsEsp[7] = false;">
                 Distribuir anti-depressivos<br>
                 e café de graça pros<br>
                 estagiários<br>
@@ -183,7 +181,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgEsp07" style="display: none" onclick="upgsEsp[8] = true; upgrades(); upgsEsp[8] = false;">
+            <button id="idUpgEsp07"
+                onclick="upgsEsp[8] = true; upgrades(upgsEsp[8], `dpsEsp`, qntEsp, 400, idUpgEsp07); upgsEsp[8] = false;">
                 Contratar Brandão para<br>
                 presionar os estagiários<br>
                 (2x Estagiário da SpTech)<br>
@@ -192,7 +191,8 @@
 
             <!--Upgrades Coach-->
 
-            <button id="idUpgCoach00" style="display: none;" onclick="upgsCoach[1] = true; upgrades(); upgsCoach[1] = false;">
+            <button id="idUpgCoach00"
+                onclick="upgsCoach[1] = true; upgrades(upgsCoach[1], `dpsCoach`, qntCoach, 400, idUpgCoach00); upgsCoach[1] = false;">
                 Começar a vender<br>
                 Ritalina pros alunos<br>
                 do curso<br>
@@ -200,28 +200,32 @@
                 Custo:
             </button>
 
-            <button id="idUpgCoach01" onclick="upgsCoach[2] = true; upgrades(); upgsCoach[2] = false;">
+            <button id="idUpgCoach01"
+                onclick="upgsCoach[2] = true; upgrades(upgsCoach[2], `dpsCoach`, qntCoach, 400, idUpgCoach01); upgsCoach[2] = false;">
                 Abrir curso de comer virado<br>
                 pra parede<br>
                 (2x Coach)<br>
                 Custo:
             </button>
 
-            <button id="idUpgCoach02" onclick="upgsCoach[3] = true; upgrades(); upgsCoach[3] = false;">
+            <button id="idUpgCoach02"
+                onclick="upgsCoach[3] = true; upgrades(upgsCoach[3], `dpsCoach`, qntCoach, 400, idUpgCoach02); upgsCoach[3] = false;">
                 Abrir curso de tomar<br>
                 banho gelado<br>
                 (2x Coach)<br>
                 Custo:
             </button>
 
-            <button id="idUpgCoach03" onclick="upgsCoach[4] = true; upgrades(); upgsCoach[4] = false;">
+            <button id="idUpgCoach03"
+                onclick="upgsCoach[4] = true; upgrades(upgsCoach[4], `dpsCoach`, qntCoach, 400, idUpgCoach03); upgsCoach[4] = false;">
                 Abrir curso de dar aquela<br>
                 manerada em setembro<br>
                 (2x Coach)<br>
                 Custo:
             </button>
 
-            <button id="idUpgCoach04" onclick="upgsCoach[5] = true; upgrades(); upgsCoach[5] = false;">
+            <button id="idUpgCoach04"
+                onclick="upgsCoach[5] = true; upgrades(upgsCoach[5], `dpsCoach`, qntCoach, 400, idUpgCoach04); upgsCoach[5] = false;">
                 Abrir curso pra ser<br>
                 muito Sigma<br>
                 no pique Pik Blainderus<br>
@@ -229,7 +233,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgCoach05" onclick="upgsCoach[6] = true; upgrades(); upgsCoach[6] = false;">
+            <button id="idUpgCoach05"
+                onclick="upgsCoach[6] = true; upgrades(upgsCoach[6], `dpsCoach`, qntCoach, 400, idUpgCoach05); upgsCoach[6] = false;">
                 Gravar vídeos para marketing<br>
                 em um carrão com um<br>
                 jovem de 19 anos que<br>
@@ -238,7 +243,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgCoach06" onclick="upgsCoach[7] = true; upgrades(); upgsCoach[7] = false;">
+            <button id="idUpgCoach06"
+                onclick="upgsCoach[7] = true; upgrades(upgsCoach[7], `dpsCoach`, qntCoach, 400, idUpgCoach06); upgsCoach[7] = false;">
                 Fazer parceria com a<br>
                 TP Desinvestimentos<br>
                 e com a Uei Proteína<br>
@@ -246,7 +252,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgCoach07" onclick="upgsCoach[8] = true; upgrades(); upgsCoach[8] = false;">
+            <button id="idUpgCoach07"
+                onclick="upgsCoach[8] = true; upgrades(upgsCoach[8], `dpsCoach`, qntCoach, 400, idUpgCoach07); upgsCoach[8] = false;">
                 Ascender o mindset e<br>
                 contratar o Beta Spirit<br>
                 para dar palestras<br>
@@ -256,7 +263,8 @@
 
             <!--Upgrades Inv-->
 
-            <button id="idUpgInv00" onclick="upgsInv00[1] = true; upgrades();upgsInv00[1] = false;">
+            <button id="idUpgInv00"
+                onclick="upgsInv[1] = true; upgrades(upgsInv[1], `dpsInv`, qntInv, 400, idUpgInv00);upgsInv[1] = false;">
                 Investir na Dórinho<br>
                 e tornar o jingle<br>
                 do comercial no Hino Nacional<br>
@@ -264,7 +272,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgInv01" onclick="upgsInv01[2] = true; upgrades();upgsInv01[2] = false;">
+            <button id="idUpgInv01"
+                onclick="upgsInv[2] = true; upgrades(upgsInv[2], `dpsInv`, qntInv, 400, idUpgInv01);upgsInv[2] = false;">
                 Investir no<br>
                 PedrinhoGameplays<br>
                 e alcançar o T-novels<br>
@@ -272,7 +281,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgInv02" onclick="upgsInv02[3] = true; upgrades();upgsInv02[3] = false;">
+            <button id="idUpgInv02"
+                onclick="upgsInv[3] = true; upgrades(upgsInv[3], `dpsInv`, qntInv, 400, idUpgInv02);upgsInv[3] = false;">
                 Contratar o Betino<br>
                 para fazer vídeos<br>
                 de marketing dizendo que<br>
@@ -281,21 +291,24 @@
                 Custo:
             </button>
 
-            <button id="idUpgInv03" onclick="upgsInv03[4] = true; upgrades();upgsInv03[4] = false;">
+            <button id="idUpgInv03"
+                onclick="upgsInv[4] = true; upgrades(upgsInv[4], `dpsInv`, qntInv, 400, idUpgInv03);upgsInv[4] = false;">
                 Investir na PagodeStar<br>
                 e fazer o GTA: Rio de Fuleiro<br>
                 (2x Investidor da Bolsa)<br>
                 Custo:
             </button>
 
-            <button id="idUpgInv04" onclick="upgsInv04[5] = true; upgrades();upgsInv04[5] = false;">
+            <button id="idUpgInv04"
+                onclick="upgsInv[5] = true; upgrades(upgsInv[5], `dpsInv`, qntInv, 400, idUpgInv04);upgsInv[5] = false;">
                 Investir na Jisney para<br>
                 reabrir o Clube Pinguim<br>
                 (2x Investidor da Bolsa)<br>
                 Custo:
             </button>
 
-            <button id="idUpgInv05" onclick="upgsInv05[6] = true; upgrades();upgsInv05[6] = false;">
+            <button id="idUpgInv05"
+                onclick="upgsInv[6] = true; upgrades(upgsInv[6], `dpsInv`, qntInv, 400, idUpgInv05);upgsInv[6] = false;">
                 Investir na Grobo e<br>
                 no SPT e criar o programa<br>
                 com o Vaustão e o Zilvio Zantos<br>
@@ -303,7 +316,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgInv06" onclick="upgsInv06[7] = true; upgrades();upgsInv06[7] = false;">
+            <button id="idUpgInv06"
+                onclick="upgsInv[7] = true; upgrades(upgsInv[7], `dpsInv`, qntInv, 400, idUpgInv06);upgsInv[7] = false;">
                 Pegar o dinheiros sobrando<br>
                 e investir em causas nobres<br>
                 para dar uma boa impressão<br>
@@ -311,7 +325,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgInv07" onclick="upgsInv07[8] = true; upgrades();upgsInv07[8] = false;">
+            <button id="idUpgInv07"
+                onclick="upgsInv[8] = true; upgrades(upgsInv[8], `dpsInv`, qntInv, 400, idUpgInv07);upgsInv[8] = false;">
                 Investir no Dinheiros Clicker<br>
                 e lançar em todas as faculdades<br>
                 do Burázil enquanto eu fujo<br>
@@ -322,7 +337,8 @@
 
             <!--Upgrades Bnk-->
 
-            <button id="idUpgBnk00" onclick="upgsBnk00[1] = true; upgrades();upgsBnk00[1] = false;">
+            <button id="idUpgBnk00"
+                onclick="upgsBnk[1] = true; upgrades(upgsBnk[1], `dpsBnk`, qntBnk, 400, idUpgBnk00);upgsBnk[1] = false;">
                 Fazer parceria com<br>
                 a C9 Bancos e criar<br>
                 o Pix -2<br>
@@ -330,7 +346,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgBnk01" onclick="upgsBnk01[2] = true; upgrades();upgsBnk01[2] = false;">
+            <button id="idUpgBnk01"
+                onclick="upgsBnk[2] = true; upgrades(upgsBnk[2], `dpsBnk`, qntBnk, 400, idUpgBnk01);upgsBnk[2] = false;">
                 Comprar impressora de<br>
                 dinheiros pra sua casa<br>
                 e lavar o dinheiros criando<br>
@@ -339,7 +356,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgBnk02" onclick="upgsBnk02[3] = true; upgrades();upgsBnk02[3] = false;">
+            <button id="idUpgBnk02"
+                onclick="upgsBnk[3] = true; upgrades(upgsBnk[3], `dpsBnk`, qntBnk, 400, idUpgBnk02);upgsBnk[3] = false;">
                 Impedir a inflação<br>
                 imprimindo mais dinheiros<br>
                 nos bancos<br>
@@ -347,7 +365,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgBnk03" onclick="upgsBnk03[4] = true; upgrades();upgsBnk03[4] = false;">
+            <button id="idUpgBnk03"
+                onclick="upgsBnk[4] = true; upgrades(upgsBnk[4], `dpsBnk`, qntBnk, 400, idUpgBnk03);upgsBnk[4] = false;">
                 Criar a nota de<br>
                 300 dinheiros com<br>
                 uma ratazana de animal<br>
@@ -355,7 +374,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgBnk04" onclick="upgsBnk04[5] = true; upgrades();upgsBnk04[5] = false;">
+            <button id="idUpgBnk04"
+                onclick="upgsBnk[5] = true; upgrades(upgsBnk[5], `dpsBnk`, qntBnk, 400, idUpgBnk04);upgsBnk[5] = false;">
                 Fazer um comercial com<br>
                 um bebezinho fofinho<br>
                 falando "desrespeito"<br>
@@ -364,23 +384,26 @@
                 Custo:
             </button>
 
-            <button id="idUpgBnk05" onclick="upgsBnk05[6] = true; upgrades();upgsBnk05[6] = false;">
+            <button id="idUpgBnk05"
+                onclick="upgsBnk[6] = true; upgrades(upgsBnk[6], `dpsBnk`, qntBnk, 400, idUpgBnk05);upgsBnk[6] = false;">
                 Lançar linha de moedas<br>
-                raras do Meymar<br> 
+                raras do Meymar<br>
                 só para chamar<br>
                 atenção e lucrar<br>
                 (2x Banco)<br>
                 Custo:
             </button>
 
-            <button id="idUpgBnk06" onclick="upgsBnk06[7] = true; upgrades();upgsBnk06[7] = false;">
+            <button id="idUpgBnk06"
+                onclick="upgsBnk[7] = true; upgrades(upgsBnk[7], `dpsBnk`, qntBnk, 400, idUpgBnk06);upgsBnk[7] = false;">
                 Criar o pagamento via<br>
                 sorrisinho pra maquininha<br>
                 (2x Banco)<br>
                 Custo:
             </button>
 
-            <button id="idUpgBnk07" onclick="upgsBnk07[8] = true; upgrades();upgsBnk07[8] = false;">
+            <button id="idUpgBnk07"
+                onclick="upgsBnk[8] = true; upgrades(upgsBnk[8], `dpsBnk`, qntBnk, 400, idUpgBnk07);upgsBnk[8] = false;">
                 Tornar o Dinheiros<br>
                 a moeda mundial e única<br>
                 com um chip espião secreto<br>
@@ -390,7 +413,8 @@
 
             <!--Upgrades Fsp-->
 
-            <button id="idUpgFsp00" onclick="upgsFsp00[1] = true; upgrades();upgsFsp00[1] = false;">
+            <button id="idUpgFsp00"
+                onclick="upgsFsp[1] = true; upgrades(upgsFsp[1], `dpsFsp`, qntFsp, 400, idUpgFsp00);upgsFsp[1] = false;">
                 Fazer festa de formatura<br>
                 na Rua Augusto<br>
                 na noitada<br>
@@ -398,7 +422,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgFsp01" onclick="upgsFsp01[2] = true; upgrades();upgsFsp01[2] = false;">
+            <button id="idUpgFsp01"
+                onclick="upgsFsp[2] = true; upgrades(upgsFsp[2], `dpsFsp`, qntFsp, 400, idUpgFsp01);upgsFsp[2] = false;">
                 Ameaçar o pessoal a<br>
                 mandar todos de<br>
                 volta pra SpTech<br>
@@ -407,7 +432,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgFsp02" onclick="upgsFsp02[3] = true; upgrades();upgsFsp02[3] = false;">
+            <button id="idUpgFsp02"
+                onclick="upgsFsp[3] = true; upgrades(upgsFsp[3], `dpsFsp`, qntFsp, 400, idUpgFsp02);upgsFsp[3] = false;">
                 Mandar os formados<br>
                 pro campeonato mundial<br>
                 de sinuca<br>
@@ -415,7 +441,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgFsp03" onclick="upgsFsp03[4] = true; upgrades();upgsFsp03[4] = false;">
+            <button id="idUpgFsp03"
+                onclick="upgsFsp[4] = true; upgrades(upgsFsp[4], `dpsFsp`, qntFsp, 400, idUpgFsp03);upgsFsp[4] = false;">
                 Mudar todos os formados<br>
                 de grupo de projetos<br>
                 repentinamente para teste<br>
@@ -424,7 +451,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgFsp04" onclick="upgsFsp04[5] = true; upgrades();upgsFsp04[5] = false;">
+            <button id="idUpgFsp04"
+                onclick="upgsFsp[5] = true; upgrades(upgsFsp[5], `dpsFsp`, qntFsp, 400, idUpgFsp04);upgsFsp[5] = false;">
                 Dar uma folga pros formados<br>
                 para eles lembrarem o que<br>
                 é vida de novo<br>
@@ -432,7 +460,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgFsp05" onclick="upgsFsp05[6] = true; upgrades();upgsFsp05[6] = false;">
+            <button id="idUpgFsp05"
+                onclick="upgsFsp[6] = true; upgrades(upgsFsp[6], `dpsFsp`, qntFsp, 400, idUpgFsp05);upgsFsp[6] = false;">
                 Dar discurso motivacional<br>
                 para os formados lembrarem<br>
                 que eles são gente<br>
@@ -440,7 +469,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgFsp06" onclick="upgsFsp06[7] = true; upgrades();upgsFsp06[7] = false;">
+            <button id="idUpgFsp06"
+                onclick="upgsFsp[7] = true; upgrades(upgsFsp[7], `dpsFsp`, qntFsp, 400, idUpgFsp06);upgsFsp[7] = false;">
                 Dar um salário gordinho<br>
                 pros formados para eles<br>
                 pensarem que vão ter tempo<br>
@@ -449,7 +479,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgFsp07" onclick="upgsFsp07[8] = true; upgrades();upgsFsp07[8] = false;">
+            <button id="idUpgFsp07"
+                onclick="upgsFsp[8] = true; upgrades(upgsFsp[8], `dpsFsp`, qntFsp, 400, idUpgFsp07);upgsFsp[8] = false;">
                 Juntar os formados para<br>
                 criar a religião tecnológica<br>
                 com a Entidade de Deus<br>
@@ -459,7 +490,8 @@
 
             <!--Upgrades Cas-->
 
-            <button id="idUpgCas00" onclick="upgsCas00[1] = true; upgrades();upgsCas00[1] = false;">
+            <button id="idUpgCas00"
+                onclick="upgsCas[1] = true; upgrades(upgsCas[1], `dpsCas`, qntCas, 400, idUpgCas00);upgsCas[1] = false;">
                 Começar a fazer maços<br>
                 no Poker e a casa<br>
                 sempre ter um Royal<br>
@@ -468,7 +500,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgCas01" onclick="upgsCas01[2] = true; upgrades();upgsCas01[2] = false;">
+            <button id="idUpgCas01"
+                onclick="upgsCas[2] = true; upgrades(upgsCas[2], `dpsCas`, qntCas, 400, idUpgCas01);upgsCas[2] = false;">
                 Programar os caça-níquel<br>
                 para ter 0.00001% de<br>
                 chance de vitória<br>
@@ -476,7 +509,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgCas02" onclick="upgsCas02[3] = true; upgrades();upgsCas02[3] = false;">
+            <button id="idUpgCas02"
+                onclick="upgsCas[3] = true; upgrades(upgsCas[3], `dpsCas`, qntCas, 400, idUpgCas02);upgsCas[3] = false;">
                 Contratar o<br>
                 Tuístedi Fato<br>
                 como Dealer<br>
@@ -484,7 +518,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgCas03" onclick="upgsCas03[4] = true; upgrades();upgsCas03[4] = false;">
+            <button id="idUpgCas03"
+                onclick="upgsCas[4] = true; upgrades(upgsCas[4], `dpsCas`, qntCas, 400, idUpgCas03);upgsCas[4] = false;">
                 Contratar o Yújji<br>
                 para girar a roleta<br>
                 da sorte<br>
@@ -492,7 +527,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgCas04" onclick="upgsCas04[5] = true; upgrades();upgsCas04[5] = false;">
+            <button id="idUpgCas04"
+                onclick="upgsCas[5] = true; upgrades(upgsCas[5], `dpsCas`, qntCas, 400, idUpgCas04);upgsCas[5] = false;">
                 Contratar a Japami Iumecu<br>
                 para competir em torneios<br>
                 em seu nome<br>
@@ -500,22 +536,25 @@
                 Custo:
             </button>
 
-            <button id="idUpgCas05" onclick="upgsCas05[6] = true; upgrades();upgsCas05[6] = false;">
+            <button id="idUpgCas05"
+                onclick="upgsCas[6] = true; upgrades(upgsCas[6], `dpsCas`, qntCas, 400, idUpgCas05);upgsCas[6] = false;">
                 Fazer parceria com a<br>
                 Brazina 888<br>
                 (2x Cassino)<br>
                 Custo:
             </button>
 
-            <button id="idUpgCas06" onclick="upgsCas06[7] = true; upgrades();upgsCas06[7] = false;">
-                Inventar o Truco 2 e<br>
+            <button id="idUpgCas06"
+                onclick="upgsCas[7] = true; upgrades(upgsCas[7], `dpsCas`, qntCas, 400, idUpgCas06);upgsCas[7] = false;">
+                Casentar o Truco 2 e<br>
                 criar a regra de ter que<br>
                 jogar gritando se não perde<br>
                 (2x Cassino)<br>
                 Custo:
             </button>
 
-            <button id="idUpgCas07" onclick="upgsCas07[8] = true; upgrades();upgsCas07[8] = false;">
+            <button id="idUpgCas07"
+                onclick="upgsCas[8] = true; upgrades(upgsCas[8], `dpsCas`, qntCas, 400, idUpgCas07);upgsCas[8] = false;">
                 Construir a nova<br>
                 Las Fegas no<br>
                 sertão nordestino<br>
@@ -525,7 +564,8 @@
 
             <!--Upgrades Pol-->
 
-            <button id="idUpgPol00" onclick="upgsPol00[1] = true; upgrades();upgsPol00[1] = false;">
+            <button id="idUpgPol00"
+                onclick="upgsPol[1] = true; upgrades(upgsPol[1], `dpsPol`, qntPol, 400, idUpgPol00);upgsPol[1] = false;">
                 Desviar dinheiros para<br>
                 sua conta na Xina<br>
                 e virar parça do<br>
@@ -534,7 +574,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgPol01" onclick="upgsPol01[2] = true; upgrades();upgsPol01[2] = false;">
+            <button id="idUpgPol01"
+                onclick="upgsPol[2] = true; upgrades(upgsPol[2], `dpsPol`, qntPol, 400, idUpgPol01);upgsPol[2] = false;">
                 Fazer marketing comendo<br>
                 pastel de queijo prato<br>
                 no Seáza<br>
@@ -542,7 +583,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgPol02" onclick="upgsPol02[3] = true; upgrades();upgsPol02[3] = false;">
+            <button id="idUpgPol02"
+                onclick="upgsPol[3] = true; upgrades(upgsPol[3], `dpsPol`, qntPol, 400, idUpgPol02);upgsPol[3] = false;">
                 Enviar uns Blaistation 5<br>
                 pros seus amigos na cadeia<br>
                 junto com um Rédi Dédi 2 que<br>
@@ -551,7 +593,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgPol03" onclick="upgsPol03[4] = true; upgrades();upgsPol03[4] = false;">
+            <button id="idUpgPol03"
+                onclick="upgsPol[4] = true; upgrades(upgsPol[4], `dpsPol`, qntPol, 400, idUpgPol03);upgsPol[4] = false;">
                 Fazer a meritocracia<br>
                 visar apenas a aparência e<br>
                 o gosto musical das pessoas<br>
@@ -560,7 +603,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgPol04" onclick="upgsPol04[5] = true; upgrades();upgsPol04[5] = false;">
+            <button id="idUpgPol04"
+                onclick="upgsPol[5] = true; upgrades(upgsPol[5], `dpsPol`, qntPol, 400, idUpgPol04);upgsPol[5] = false;">
                 Comprar votos com<br>
                 um salgado e uma<br>
                 coca<br>
@@ -568,7 +612,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgPol05" onclick="upgsPol05[6] = true; upgrades();upgsPol05[6] = false;">
+            <button id="idUpgPol05"
+                onclick="upgsPol[6] = true; upgrades(upgsPol[6], `dpsPol`, qntPol, 400, idUpgPol05);upgsPol[6] = false;">
                 Fazer o Luwla e o<br>
                 Bolsamaro fazerem as pazes<br>
                 e criarem o maior Podcast<br>
@@ -577,7 +622,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgPol06" onclick="upgsPol06[7] = true; upgrades();upgsPol06[7] = false;">
+            <button id="idUpgPol06"
+                onclick="upgsPol[7] = true; upgrades(upgsPol[7], `dpsPol`, qntPol, 400, idUpgPol06);upgsPol[7] = false;">
                 Fazer discurso emocionante na<br>
                 câmara falando sobre a dificuldade<br>
                 e o suor dos trabalhadores Burázileros<br>
@@ -586,7 +632,8 @@
                 Custo:
             </button>
 
-            <button id="idUpgPol07" onclick="upgsPol07[8] = true; upgrades();upgsPol07[8] = false;">
+            <button id="idUpgPol07"
+                onclick="upgsPol[8] = true; upgrades(upgsPol[8], `dpsPol`, qntPol, 400, idUpgPol07);upgsPol[8] = false;">
                 Adotar o capitalismo 2.0<br>
                 na sociedade<br>
                 (2x Político)<br>
@@ -595,7 +642,8 @@
 
             <!--Upgrades Mul-->
 
-            <button id="idUpgMul00" onclick="upgsMul00[1] = true; upgrades();upgsMul00[1] = false;">
+            <button id="idUpgMul00"
+                onclick="upgsMul[1] = true; upgrades(upgsMul[1], `dpsMul`, qntMul, 400, idUpgMul00);upgsMul[1] = false;">
                 Unificar o Crick Jogos<br>
                 e o Frive e dominar<br>
                 os jogos Browser<br>
@@ -603,28 +651,32 @@
                 Custo:
             </button>
 
-            <button id="idUpgMul01" onclick="upgsMul01[2] = true; upgrades();upgsMul01[2] = false;">
+            <button id="idUpgMul01"
+                onclick="upgsMul[2] = true; upgrades(upgsMul[2], `dpsMul`, qntMul, 400, idUpgMul01);upgsMul[2] = false;">
                 Comprar a Istím e<br>
                 lançar o Half-Death 3<br>
                 (2x Empresa Multinacional)<br>
                 Custo:
             </button>
 
-            <button id="idUpgMul02" onclick="upgsMul02[3] = true; upgrades();upgsMul02[3] = false;">
+            <button id="idUpgMul02"
+                onclick="upgsMul[3] = true; upgrades(upgsMul[3], `dpsMul`, qntMul, 400, idUpgMul02);upgsMul[3] = false;">
                 Comprar a Granchrroll e<br>
                 lançar o Norakami 3<br>
                 (2x Empresa Multinacional)<br>
                 Custo:
             </button>
 
-            <button id="idUpgMul03" onclick="upgsMul03[4] = true; upgrades();upgsMul03[4] = false;">
+            <button id="idUpgMul03"
+                onclick="upgsMul[4] = true; upgrades(upgsMul[4], `dpsMul`, qntMul, 400, idUpgMul03);upgsMul[4] = false;">
                 Comprar o MacRonald's<br>
                 e criar o Small Mac<br>
                 (2x Empresa Multinacional)<br>
                 Custo:
             </button>
 
-            <button id="idUpgMul04" onclick="upgsMul04[5] = true; upgrades();upgsMul04[5] = false;">
+            <button id="idUpgMul04"
+                onclick="upgsMul[5] = true; upgrades(upgsMul[5], `dpsMul`, qntMul, 400, idUpgMul04);upgsMul[5] = false;">
                 Comprar a Jisney<br>
                 e construir uma<br>
                 Jisney Land no Burázil<br>
@@ -632,20 +684,23 @@
                 Custo:
             </button>
 
-            <button id="idUpgMul05" onclick="upgsMul05[6] = true; upgrades();upgsMul05[6] = false;">
+            <button id="idUpgMul05"
+                onclick="upgsMul[6] = true; upgrades(upgsMul[6], `dpsMul`, qntMul, 400, idUpgMul05);upgsMul[6] = false;">
                 Comprar a Space Y<br>
                 e fugir da Terra<br>
                 (2x Empresa Multinacional)<br>
                 Custo:
             </button>
 
-            <button id="idUpgMul06" onclick="upgsMul06[7] = true; upgrades();upgsMul06[7] = false;">
+            <button id="idUpgMul06"
+                onclick="upgsMul[7] = true; upgrades(upgsMul[7], `dpsMul`, qntMul, 400, idUpgMul06);upgsMul[7] = false;">
                 Comprar o Élen Must<br>
                 (2x Empresa Multinacional)<br>
                 Custo:
             </button>
 
-            <button id="idUpgMul07" onclick="upgsMul07[8] = true; upgrades();upgsMul07[8] = false;">
+            <button id="idUpgMul07"
+                onclick="upgsMul[8] = true; upgrades(upgsMul[8], `dpsMul`, qntMul, 400, idUpgMul07);upgsMul[8] = false;">
                 Unificar todas as<br>
                 empresas do mundo<br>
                 e criar o país<br>
