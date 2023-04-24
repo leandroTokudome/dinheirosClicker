@@ -7,6 +7,15 @@ dpsCas = 300
 dpsPol = 400
 dpsMul = 1000
 
+simplifiedDpsEsp = 1
+simplifiedDpsCoach = 5
+simplifiedDpsInv = 35
+simplifiedDpsBnk = 100
+simplifiedDpsFsp = 250
+simplifiedDpsCas = 300
+simplifiedDpsPol = 400
+simplifiedDpsMul = 1000
+
 espScale = 20
 coachScale = 100
 invScale = 250
@@ -16,7 +25,7 @@ casScale = 800
 polScale = 1000
 mulScale = 3000
 
-upgsEsp = [upgEsp00 = false, upgEsp01 = falseupgEsp02 = false, upgEsp03 = false, upgEsp04 = false, upgEsp05 = false, upgEsp06 = false, upgEsp07 = false]
+upgsEsp = [upgEsp00 = false, upgEsp01 = false, upgEsp02 = false, upgEsp03 = false, upgEsp04 = false, upgEsp05 = false, upgEsp06 = false, upgEsp07 = false]
 upgsCoach = [upgCoach00 = false, upgCoach01 = false, upgCoach02 = false, upgCoach03 = false, upgCoach04 = false, upgCoach05 = false, upgCoach06 = false, upgCoach07 = false]
 upgsInv = [upgInv00 = false, upgInv01 = false, upgInv02 = false, upgInv03 = false, upgInv04 = false, upgInv05 = false, upgInv06 = false, upgInv07 = false]
 upgsBnk = [upgBnk00 = false, upgBnk01 = false, upgBnk02 = false, upgBnk03 = false, upgBnk04 = false, upgBnk05 = false, upgBnk06 = false, upgBnk07 = false]
@@ -27,7 +36,10 @@ upgsMul = [upgMul00 = false, upgMul01 = false, upgMul02 = false, upgMul03 = fals
 
 realDinheiros = 0
 simplifiedNumberDinheiros = 0
+simplifiedDps = 0
+simplifiedDpc = 1
 dpsTotal = 0
+dpcPercent = 0
 dpc = 1
 
 document.getElementById("dinheirosButton").addEventListener("click", function removeFocus() {
@@ -54,7 +66,7 @@ function builds(buildCost, buildDps, buildQnt, buildScale) {
         realDinheiros = Number(realDinheiros) - Number(buildCost.innerHTML)
         buildQnt.innerHTML = Number(buildQnt.innerHTML) + 1
         buildCost.innerHTML = Number(buildCost.innerHTML) + buildScale
-        dpsDisplay.innerHTML = dpsTotal
+        dpcAdd()
         simplify()
     }
 }
@@ -63,9 +75,9 @@ function upgrades(upgTrue, dpsUpg, qntUpg, price, idUpg) {
     if (upgTrue && (realDinheiros >= price)) {
         window[dpsUpg] *= 2
         dpsTotal = dpsTotal + (qntUpg.innerHTML * window[dpsUpg]) - Number(qntUpg.innerHTML) * window[dpsUpg] / 2
-        dpsDisplay.innerHTML = dpsTotal
         realDinheiros = Number(realDinheiros) - price
         simplify()
+        dpcAdd()
         idUpg.remove()
     }
 }
@@ -97,13 +109,26 @@ function upgradeShow(buildQnt, idBuild) {
     }
 }
 
-function dpcAdd() {
-    dpcDisplay.innerHTML = Number(dpc)
+function dpcPercentAdd() {
+    dpcPercent += 0.01
+    dpcAdd()
 }
+
+function dpcAdd() {
+    if (dpcPercent != 0) {
+        dpc = dpsTotal * dpcPercent
+        dpc = Math.round(dpc)
+        simplify()
+    }
+    } 
 
 function simplify() {
     simplifiedNumberDinheiros = realDinheiros.toLocaleString()
     dinheiros.innerHTML = simplifiedNumberDinheiros
+    simplifiedDpc = dpc.toLocaleString()
+    dpcDisplay.innerHTML = simplifiedDpc
+    simplifiedDps = dpsTotal.toLocaleString()
+    dpsDisplay.innerHTML = simplifiedDps
 }
 
 second()
