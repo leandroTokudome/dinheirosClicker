@@ -7,15 +7,6 @@ dpsCas = 300
 dpsPol = 400
 dpsMul = 1000
 
-simplifiedDpsEsp = 1
-simplifiedDpsCoach = 5
-simplifiedDpsInv = 35
-simplifiedDpsBnk = 100
-simplifiedDpsFsp = 250
-simplifiedDpsCas = 300
-simplifiedDpsPol = 400
-simplifiedDpsMul = 1000
-
 espScale = 20
 coachScale = 100
 invScale = 250
