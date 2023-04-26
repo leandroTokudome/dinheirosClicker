@@ -19,58 +19,58 @@
 
             <br>
 
-            <button onclick="builds(espCost, dpsEsp, qntEsp, espScale); upgradeShow(qntEsp, `idUpgEsp`);">Estagiário
+            <button onclick="builds(`realCostEsp`, `espCost`, dpsEsp, qntEsp, espScale); upgradeShow(qntEsp, `idUpgEsp`);">Estagiário
                 da SpTech</button>
             <div>Quantidade: <span id="qntEsp">0</span></div>
-            <div>Custo: <span id="espCost">10</span></div>
+            <div>Custo: <span id="espCost">15</span></div>
 
             <br>
 
             <button
-                onclick="builds(coachCost, dpsCoach, qntCoach, coachScale); upgradeShow(qntCoach, `idUpgCoach`);">Coach</button>
+                onclick="builds(`realCostCoach`, `coachCost`, dpsCoach, qntCoach, coachScale); upgradeShow(qntCoach, `idUpgCoach`);">Coach</button>
             <div>Quantidade: <span id="qntCoach">0</span></div>
-            <div>Custo: <span id="coachCost">150</span></div>
+            <div>Custo: <span id="coachCost">100</span></div>
 
             <br>
 
-            <button onclick="builds(invCost, dpsInv, qntInv, invScale); upgradeShow(qntInv, `idUpgInv`);">Investidor
+            <button onclick="builds(`realCostInv`, `invCost`, dpsInv, qntInv, invScale); upgradeShow(qntInv, `idUpgInv`);">Investidor
                 da bolsa</button>
             <div>Quantidade: <span id="qntInv">0</span></div>
-            <div>Custo: <span id="invCost">1000</span></div>
+            <div>Custo: <span id="invCost">1.100</span></div>
 
             <br>
 
-            <button onclick="builds(bnkCost, dpsBnk, qntBnk, bnkScale); upgradeShow(qntBnk, `idUpgBnk`);">Banco</button>
+            <button onclick="builds(`realCostBnk`, `bnkCost`, dpsBnk, qntBnk, bnkScale); upgradeShow(qntBnk, `idUpgBnk`);">Banco</button>
             <div>Quantidade: <span id="qntBnk">0</span></div>
-            <div>Custo: <span id="bnkCost">30000</span></div>
+            <div>Custo: <span id="bnkCost">12.000</span></div>
 
             <br>
 
-            <button onclick="builds(fspCost, dpsFsp, qntFsp, fspScale); upgradeShow(qntFsp, `idUpgFsp`);">Formado
+            <button onclick="builds(`realCostFsp`, `fspCost`, dpsFsp, qntFsp, fspScale); upgradeShow(qntFsp, `idUpgFsp`);">Formado
                 na SpTech</button>
             <div>Quantidade: <span id="qntFsp">0</span></div>
-            <div>Custo: <span id="fspCost">65000</span></div>
+            <div>Custo: <span id="fspCost">130.000</span></div>
 
             <br>
 
             <button
-                onclick="builds(casCost, dpsCas, qntCas, casScale); upgradeShow(qntCas, `idUpgCas`);">Cassino</button>
+                onclick="builds(`realCostCas`, `casCost`, dpsCas, qntCas, casScale); upgradeShow(qntCas, `idUpgCas`);">Cassino</button>
             <div>Quantidade: <span id="qntCas">0</span></div>
-            <div>Custo: <span id="casCost">80000</span></div>
+            <div>Custo: <span id="casCost">900.000</span></div>
 
             <br>
 
             <button
-                onclick="builds(polCost, dpsPol, qntPol, polScale); upgradeShow(qntPol, `idUpgPol`);">Político</button>
+                onclick="builds(`realCostPol`, `polCost`, dpsPol, qntPol, polScale); upgradeShow(qntPol, `idUpgPol`);">Político</button>
             <div>Quantidade: <span id="qntPol">0</span></div>
-            <div>Custo: <span id="polCost">100000</span></div>
+            <div>Custo: <span id="polCost">16.000.000</span></div>
 
             <br>
 
-            <button onclick="builds(mulCost, dpsMul, qntMul, mulScale); upgradeShow(qntMul, `idUpgMul`);">Empresa
+            <button onclick="builds(`realCostMul`, `mulCost`, dpsMul, qntMul, mulScale); upgradeShow(qntMul, `idUpgMul`);">Empresa
                 Multinacional</button>
             <div>Quantidade: <span id="qntMul">0</span></div>
-            <div>Custo: <span id="mulCost">300000</span></div>
+            <div>Custo: <span id="mulCost">280.000.000</span></div>
 
         </div>
 
@@ -116,7 +116,12 @@
 
             <br>
 
-            <!--Upgrades temporários-->
+            <!--Upgrade temporário-->
+
+            <button onclick="upgradeTemp()" id="buttonUpgTemp">
+                (30x Poder do Click)<br>
+                Dura 25 segundos
+            </button>
 
             <!--Upgrades Esp-->
 

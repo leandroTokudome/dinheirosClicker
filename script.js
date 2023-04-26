@@ -1,20 +1,29 @@
 dpsEsp = 1
-dpsCoach = 5
-dpsInv = 35
-dpsBnk = 100
-dpsFsp = 250
-dpsCas = 300
-dpsPol = 400
-dpsMul = 1000
+dpsCoach = 10
+dpsInv = 80
+dpsBnk = 470
+dpsFsp = 2600
+dpsCas = 14000
+dpsPol = 78000
+dpsMul = 440000
 
-espScale = 20
-coachScale = 100
-invScale = 250
-bnkScale = 500
-fspScale = 750
-casScale = 800
-polScale = 1000
-mulScale = 3000
+espScale = 15
+coachScale = 80
+invScale = 425
+bnkScale = 2250
+fspScale = 12000
+casScale = 63600
+polScale = 337080
+mulScale = 1800000
+
+realCostEsp = 15
+realCostCoach = 100
+realCostInv = 1100
+realCostBnk = 12000
+realCostFsp = 130000
+realCostCas = 900000
+realCostPol = 16000000
+realCostMul = 280000000
 
 upgsEsp = [upgEsp00 = false, upgEsp01 = false, upgEsp02 = false, upgEsp03 = false, upgEsp04 = false, upgEsp05 = false, upgEsp06 = false, upgEsp07 = false]
 upgsCoach = [upgCoach00 = false, upgCoach01 = false, upgCoach02 = false, upgCoach03 = false, upgCoach04 = false, upgCoach05 = false, upgCoach06 = false, upgCoach07 = false]
@@ -27,6 +36,7 @@ upgsMul = [upgMul00 = false, upgMul01 = false, upgMul02 = false, upgMul03 = fals
 
 realDinheiros = 0
 simplifiedNumberDinheiros = 0
+simplifiedBuildCost = 0
 simplifiedDps = 0
 simplifiedDpc = 1
 dpsTotal = 0
@@ -51,13 +61,14 @@ function totalDps() {
     simplify()
 }
 
-function builds(buildCost, buildDps, buildQnt, buildScale) {
-    if (realDinheiros >= Number(buildCost.innerHTML)) {
+function builds(realCost, idBuild, buildDps, buildQnt, buildScale) {
+    if (realDinheiros >= window[realCost]) {
         dpsTotal = Number(dpsTotal) + buildDps
-        realDinheiros = Number(realDinheiros) - Number(buildCost.innerHTML)
+        realDinheiros = Number(realDinheiros) - window[realCost]
         buildQnt.innerHTML = Number(buildQnt.innerHTML) + 1
-        buildCost.innerHTML = Number(buildCost.innerHTML) + buildScale
+        window[realCost] += buildScale
         dpcAdd()
+        simplifyBuild(realCost, idBuild)
         simplify()
     }
 }
@@ -100,6 +111,29 @@ function upgradeShow(buildQnt, idBuild) {
     }
 }
 
+function upgradeTemp() {
+    dpc *= 30
+    setTimeout(upgradeTempOff, 25000)
+    buttonUpgTemp.style.display = `none`
+    simplify()
+}
+
+function upgradeTempOff() {
+    dpc /= 30
+    simplify()
+}
+
+setInterval(upgradeTempShow, 300000)
+
+function upgradeTempShow() {
+    buttonUpgTemp.style.display = `block`
+    setTimeout(upgradeTempShowOff, 30000)
+}
+
+function upgradeTempShowOff() {
+    buttonUpgTemp.style.display = `none`
+}
+
 function dpcPercentAdd() {
     dpcPercent += 0.01
     dpcAdd()
@@ -120,6 +154,11 @@ function simplify() {
     dpcDisplay.innerHTML = simplifiedDpc
     simplifiedDps = dpsTotal.toLocaleString()
     dpsDisplay.innerHTML = simplifiedDps
+}
+
+function simplifyBuild(realCost, idBuild) {
+    simplifiedBuildCost = (window[realCost]).toLocaleString()
+    document.getElementById(idBuild).innerHTML = simplifiedBuildCost
 }
 
 second()
