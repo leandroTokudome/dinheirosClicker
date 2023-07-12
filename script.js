@@ -8,22 +8,22 @@ dpsPol = 78000
 dpsMul = 440000
 
 espScale = 15
-coachScale = 80
-invScale = 425
-bnkScale = 2250
-fspScale = 12000
-casScale = 63600
-polScale = 337080
-mulScale = 1800000
+coachScale = 800
+invScale = 4250
+bnkScale = 22500
+fspScale = 120000
+casScale = 636000
+polScale = 3370800
+mulScale = 18000000
 
 realCostEsp = 15
-realCostCoach = 100
-realCostInv = 1100
-realCostBnk = 12000
-realCostFsp = 130000
-realCostCas = 900000
-realCostPol = 16000000
-realCostMul = 280000000
+realCostCoach = 1000
+realCostInv = 11000
+realCostBnk = 120000
+realCostFsp = 1300000
+realCostCas = 14000000
+realCostPol = 200000000
+realCostMul = 3300000000
 
 upgsEsp = [upgEsp00 = false, upgEsp01 = false, upgEsp02 = false, upgEsp03 = false, upgEsp04 = false, upgEsp05 = false, upgEsp06 = false, upgEsp07 = false]
 upgsCoach = [upgCoach00 = false, upgCoach01 = false, upgCoach02 = false, upgCoach03 = false, upgCoach04 = false, upgCoach05 = false, upgCoach06 = false, upgCoach07 = false]
@@ -41,7 +41,15 @@ simplifiedDps = 0
 simplifiedDpc = 1
 dpsTotal = 0
 dpcPercent = 0
+upgOn = false
 dpc = 1
+
+var botaoDinheiros = document.getElementById("dinheirosButton") 
+
+const img = document.querySelector("img");
+img.ondragstart = () => {
+  return false;
+};
 
 document.getElementById("dinheirosButton").addEventListener("click", function removeFocus() {
     this.blur();
@@ -49,7 +57,7 @@ document.getElementById("dinheirosButton").addEventListener("click", function re
 
 function clickDinheiros() {
     realDinheiros += dpc
-    simplify()
+    simplifyDinheiros()
 }
 
 function second() {
@@ -58,69 +66,83 @@ function second() {
 
 function totalDps() {
     realDinheiros += dpsTotal
-    simplify()
+    simplifyDinheiros()
+    simplifyDps()
 }
 
 function builds(realCost, idBuild, buildDps, buildQnt, buildScale) {
-    if (realDinheiros >= window[realCost]) {
-        dpsTotal = Number(dpsTotal) + buildDps
-        realDinheiros = Number(realDinheiros) - window[realCost]
-        buildQnt.innerHTML = Number(buildQnt.innerHTML) + 1
-        window[realCost] += buildScale
-        dpcAdd()
-        simplifyBuild(realCost, idBuild)
-        simplify()
+    if (!upgOn) {
+        if (realDinheiros >= window[realCost]) {
+            dpsTotal = Number(dpsTotal) + buildDps
+            realDinheiros = Number(realDinheiros) - window[realCost]
+            buildQnt.innerHTML = Number(buildQnt.innerHTML) + 1
+            window[realCost] += buildScale
+            dpcAdd()
+            simplifyBuild(realCost, idBuild)
+            simplifyDps()
+            simplifyDinheiros()
+            simplifyDpc()
+        }
     }
-}
+    }
 
 function upgrades(upgTrue, dpsUpg, qntUpg, price, idUpg) {
-    if (upgTrue && (realDinheiros >= price)) {
-        window[dpsUpg] *= 2
-        dpsTotal = dpsTotal + (qntUpg.innerHTML * window[dpsUpg]) - Number(qntUpg.innerHTML) * window[dpsUpg] / 2
-        realDinheiros = Number(realDinheiros) - price
-        simplify()
-        dpcAdd()
-        idUpg.remove()
+    if (!upgOn) {
+        if (upgTrue && (realDinheiros >= price)) {
+            window[dpsUpg] *= 2
+            dpsTotal = dpsTotal + (qntUpg.innerHTML * window[dpsUpg]) - Number(qntUpg.innerHTML) * window[dpsUpg] / 2
+            realDinheiros = Number(realDinheiros) - price
+            simplifyDps()
+            simplifyDpc()
+            simplifyDinheiros()
+            dpcAdd()
+            idUpg.remove()
+        }
     }
 }
 
-function upgradeShow(buildQnt, idBuild) {
-    if (buildQnt.innerHTML == 25) {
+function upgradeShow(buildQnt, idBuild, buildScale) {
+    if (buildQnt.innerHTML == 10) {
         document.getElementById(idBuild + `00`).style.display = "block"
     }
-    if (buildQnt.innerHTML == 50) {
+    if (buildQnt.innerHTML == 25) {
         document.getElementById(idBuild + `01`).style.display = "block"
+        window[buildScale] *= 2
     }
-    if (buildQnt.innerHTML == 75) {
+    if (buildQnt.innerHTML == 50) {
         document.getElementById(idBuild + `02`).style.display = "block"
     }
     if (buildQnt.innerHTML == 100) {
         document.getElementById(idBuild + `03`).style.display = "block"
-    }
-    if (buildQnt.innerHTML == 125) {
-        document.getElementById(idBuild + `04`).style.display = "block"
+        window[buildScale] *= 2
     }
     if (buildQnt.innerHTML == 150) {
-        document.getElementById(idBuild + `05`).style.display = "block"
-    }
-    if (buildQnt.innerHTML == 175) {
-        document.getElementById(idBuild + `06`).style.display = "block"
+        document.getElementById(idBuild + `04`).style.display = "block"
     }
     if (buildQnt.innerHTML == 200) {
+        document.getElementById(idBuild + `05`).style.display = "block"
+        window[buildScale] *= 2
+    }
+    if (buildQnt.innerHTML == 300) {
+        document.getElementById(idBuild + `06`).style.display = "block"
+    }
+    if (buildQnt.innerHTML == 400) {
         document.getElementById(idBuild + `07`).style.display = "block"
     }
 }
 
 function upgradeTemp() {
+    upgOn = true
     dpc *= 30
     setTimeout(upgradeTempOff, 25000)
     buttonUpgTemp.style.display = `none`
-    simplify()
+    simplifyDpc()
 }
 
 function upgradeTempOff() {
+    upgOn = false
     dpc /= 30
-    simplify()
+    simplifyDpc()
 }
 
 setInterval(upgradeTempShow, 300000)
@@ -134,26 +156,38 @@ function upgradeTempShowOff() {
     buttonUpgTemp.style.display = `none`
 }
 
-function dpcPercentAdd() {
-    dpcPercent += 0.01
-    dpcAdd()
+function dpcPercentAdd(upgCost) {
+    if (!upgOn) {
+        if (realDinheiros >= upgCost) {
+            dpcPercent += 0.01
+            dpcAdd()
+        }
+    }
 }
 
 function dpcAdd() {
-    if (dpcPercent != 0) {
-        dpc = dpsTotal * dpcPercent
-        dpc = Math.round(dpc)
-        simplify()
+    if (!upgOn) {
+        if (dpcPercent != 0) {
+            dpc = dpsTotal * dpcPercent
+            dpc = Math.round(dpc)
+            simplifyDpc()
+        }
     }
-    } 
+}
 
-function simplify() {
-    simplifiedNumberDinheiros = realDinheiros.toLocaleString()
-    dinheiros.innerHTML = simplifiedNumberDinheiros
-    simplifiedDpc = dpc.toLocaleString()
-    dpcDisplay.innerHTML = simplifiedDpc
+function simplifyDps() {
     simplifiedDps = dpsTotal.toLocaleString()
     dpsDisplay.innerHTML = simplifiedDps
+}
+
+function simplifyDpc() {
+    simplifiedDpc = dpc.toLocaleString()
+    dpcDisplay.innerHTML = simplifiedDpc
+}
+
+function simplifyDinheiros() {
+    simplifiedNumberDinheiros = realDinheiros.toLocaleString()
+    dinheiros.innerHTML = simplifiedNumberDinheiros
 }
 
 function simplifyBuild(realCost, idBuild) {
